@@ -24,7 +24,7 @@ void readFull(int fd, void* buf, size_t size) {
 	size_t errCnt=0;
 	while (pos<size) {
 		ssize_t ret=read(fd, static_cast<char*>(buf)+pos,size-pos);
-		if (ret==-1) {
+		if (ret<0) {
 			if (EAGAIN==errno || EINTR==errno) {
 				if (++errCnt>100) throw std::runtime_error("Too many errors reading from "+std::to_string(fd)+": "+utils::errno_string());
 				continue;
@@ -32,7 +32,7 @@ void readFull(int fd, void* buf, size_t size) {
 				throw std::runtime_error("error reading from "+std::to_string(fd)+": "+utils::errno_string());
 			}
 		}
-		if (ret==0) std::runtime_error("unexpected end of file");
+		if (ret==0) throw std::runtime_error("unexpected end of file");
 		pos+=ret;
 	}
 }
@@ -49,7 +49,7 @@ void writeFull(int fd, const void* buf, size_t size) {
 				throw std::runtime_error("error writing to "+std::to_string(fd)+": "+utils::errno_string());
 			}
 		}
-		if (ret==0) std::runtime_error("unexpectedly can't write");
+		if (ret==0) throw std::runtime_error("unexpectedly can't write");
 		pos+=ret;
 	}
 }

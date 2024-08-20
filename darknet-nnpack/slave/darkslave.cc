@@ -51,7 +51,7 @@ void readFull(int fd, void* buf, size_t size) {
 				throw std::runtime_error("error reading from "+std::to_string(fd)+": "+utils::errno_string());
 			}
 		}
-		if (ret==0) std::runtime_error("unexpected end of file");
+		if (ret==0) throw std::runtime_error("unexpected end of file");
 		pos+=ret;
 	}
 }
@@ -68,7 +68,7 @@ void writeFull(int fd, const void* buf, size_t size) {
 				throw std::runtime_error("error writing to "+std::to_string(fd)+": "+utils::errno_string());
 			}
 		}
-		if (ret==0) std::runtime_error("unexpectedly can't write");
+		if (ret==0) throw std::runtime_error("unexpectedly can't write");
 		pos+=ret;
 	}
 }
