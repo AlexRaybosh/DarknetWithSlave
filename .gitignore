@@ -1,0 +1,15 @@
+build/
+NNPACK-darknet/deps/*/.git*
+NNPACK-darknet/deps/googletest/googletest/.gitignore
+*.sw*
+**/*.o
+**/.git
+darknet-nnpack/darknet
+darknet-nnpack/darkslave
+darknet-nnpack/slavetester
+darknet-nnpack/artwork/
+darknet-nnpack/*.so
+darknet-nnpack/*.a
+darknet-nnpack/obj/
+darknet-nnpack/build/
+darknet-nnpack/*predictions*
