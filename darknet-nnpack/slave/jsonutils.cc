@@ -790,7 +790,7 @@ jptr parseFromFile(const char* fileName, size_t pos, size_t* bytesRead) {
 		FD fd=::open(fileName,O_RDONLY | O_NOATIME);
 		if (!fd) errno_exception("Failed to open "+std::string(fileName));
 		auto unmap=[&size](void* map) {
-			if (map>0) ::munmap(map, size);
+			if (map) ::munmap(map, size);
 		};
 		std::unique_ptr<void, decltype(unmap)> map(::mmap(0, size, PROT_READ, MAP_SHARED, (int)fd, 0),unmap);
 		if (map.get()==MAP_FAILED) errno_exception("Failed to mmap "+std::string(fileName));
