@@ -11,4 +11,11 @@
 Simple json based in/out detection over a pipe [32bit packet len, packet json] , ref. test [slavetester](darknet-nnpack/slave/slavetester.cc)
 
 
+## build
+```
+make NNPACK
+```
 
+```
+make DARKNET
+```
