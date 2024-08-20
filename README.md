@@ -6,4 +6,9 @@
 
 
 ## darkslave
-[darkslave](blob/master/darknet-nnpack/slave/darkslave.cc)
+[darkslave](darknet-nnpack/slave/darkslave.cc)
+
+Simple json based in/out detection over a pipe [32bit packet len, packet json] , ref. test [darkslave](darknet-nnpack/slave/slavetester.cc)
+
+
+
