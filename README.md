@@ -6,4 +6,4 @@
 
 
 ## darkslave
-(blob/master/darknet-nnpack/slave/darkslave.cc)
+darkslave (blob/master/darknet-nnpack/slave/darkslave.cc)
