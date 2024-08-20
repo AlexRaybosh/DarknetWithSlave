@@ -146,7 +146,11 @@ $(BUILD)/slave/%.o : slave/%.cc $(THIS_MAKEFILE)
 
 
 #all: obj backup results $(SLIB) $(ALIB) $(EXEC)
-all: obj  results $(SLIB) $(ALIB) $(EXEC) $(SLAVE_EXE) $(SLAVETESTER_EXE)
+all: obj  results $(SLIB) $(ALIB) $(EXEC) $(SLAVE_EXE) $(SLAVETESTER_EXE) yolov3.weights
+
+yolov3.weights: yolov3.weights.aa yolov3.weights.ab  yolov3.weights.ac  yolov3.weights.ad yolov3.weights.ae
+	cat $^ > $@
+
 
 $(SLAVE_EXE): $(SLAVE_OBJS) libdarknet.a
 	$(CXX) -o $@ $(SLAVE_NO_MAIN_OBJS) $(BUILD)/slave/darkslave.o \
