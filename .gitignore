@@ -13,3 +13,4 @@ darknet-nnpack/*.a
 darknet-nnpack/obj/
 darknet-nnpack/build/
 darknet-nnpack/*predictions*
+darknet-nnpack/yolov3.weights
